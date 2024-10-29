@@ -24,4 +24,3 @@ Route::get('books/{id}', [BookController::class, 'show'])->name('books.show');
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('auth', 'admin');
-
