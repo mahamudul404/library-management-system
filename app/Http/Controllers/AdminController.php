@@ -49,15 +49,34 @@ class AdminController extends Controller
 
     public function storeBook(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'isbn' => 'required',
+            'year' => 'required|integer',
+            'isbn' => 'required',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+
+        ]);
+
         $book = new Book();
         $book->title = $request->title;
         $book->author = $request->author;
-        $book->year = $request->year;
-        $book->cover_image = $request->cover_image;
         $book->isbn = $request->isbn;
-        $book->available = $request->available;
+        $book->year = $request->year;
+
+        // store image
+        if ($request->hasFile('cover_image')) {
+            $image = $request->file('cover_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            $image->move(public_path('images'), $filename);
+            $book->cover_image = $filename;
+        }
+
+
         $book->save();
-        return redirect()->back();
+        return redirect()->route('admin.books');
     }
 
 

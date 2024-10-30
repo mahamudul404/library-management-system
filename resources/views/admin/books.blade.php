@@ -71,7 +71,7 @@
                                 <td class="py-2 px-4 border-b">{{ $book->title ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->author ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->year ?? 'N/A' }}</td>
-                                <td class="py-2 px-4 border-b"><img src="{{ asset('storage/' . $book->cover_image) }}"
+                                <td class="py-2 px-4 border-b"><img src="{{ asset('images/' . $book->cover_image) }}"
                                         width="100px"></td>
                                 <td class="py-2 px-4 border-b">{{ $book->isbn ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->available ?? 'N/A' }}</td>
