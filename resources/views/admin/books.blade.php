@@ -44,7 +44,12 @@
         {{-- Main Content --}}
 
         <main class="flex-1 p-8">
-            <h1 class="text-3xl font-bold mb-6">Books</h1>
+            <div class="flex justify-between items-center ml-8 mt-4">
+              <h1 class="text-3xl font-bold mb-6">Books</h1>
+            {{-- add new books a link add  --}}
+            <a href="" class="px-2 py-1 bg-blue-500 text-white rounded-md">Add New
+                Book</a>
+            </div>
             <div class="mt-8 bg-white p-6 rounded-lg shadow">
                 <h2 class="text-xl font-bold mb-4">Books</h2>
                 <table class="w-full">
@@ -65,12 +70,14 @@
                                 <td class="py-2 px-4 border-b">{{ $book->title ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->author ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->year ?? 'N/A' }}</td>
-                                <td class="py-2 px-4 border-b"><img src="{{ asset('storage/' . $book->cover_image) }}" width="100px"></td>
+                                <td class="py-2 px-4 border-b"><img src="{{ asset('storage/' . $book->cover_image) }}"
+                                        width="100px"></td>
                                 <td class="py-2 px-4 border-b">{{ $book->isbn ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->available ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">
                                     <a href="" class="px-2 py-1 bg-blue-500 text-white rounded-md">Edit</a>
-                                    <a href="{{ route('books.destroy', $book->id) }}" class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</a>
+                                    <a href="{{ route('books.destroy', $book->id) }}"
+                                        class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
