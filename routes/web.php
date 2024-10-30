@@ -20,7 +20,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin/dashboard/users', [AdminController::class, 'users'])->name('admin.users');
 
     // delete users accout
-    Route::delete('/users/{id}', [AdminController::class, 'deleteUser'])->name('delete');
+    Route::delete('admin/dashboard/users/{id}', [AdminController::class, 'deleteUser'])->name('user.delete');
 
 
     // Only admins can access these routes

@@ -64,7 +64,7 @@
                                 <td class="py-2 px-4 border-b">{{ $user->role ?? 'N/A' }}</td>
                                 {{-- how to delete user account --}}
                                 <td class="py-2 px-4 border-b">
-                                    <form action="{{ route('delete', $user->id) }}" method="POST">
+                                    <form action="{{ route('user.delete', $user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit"

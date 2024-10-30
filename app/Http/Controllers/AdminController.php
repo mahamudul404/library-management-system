@@ -33,6 +33,6 @@ class AdminController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->back()->with('success', 'User deleted successfully.');
+        return redirect()->back();
     }
 }
