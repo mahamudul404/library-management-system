@@ -14,9 +14,9 @@ class AdminController extends Controller
         // $totalBooks = Book::count();
         // $borrowedBooks = Borrowing::whereNull('return_at')->count();
         // $overdueBooks = Borrowing::where('due_at', '<', now())->whereNull('return_at')->count();
-        // $totalUsers = User::count();
+        // just show the total user not show admin count
+        $totalUsers = User::where('role', 'user')->count();
 
-        return view('admin.dashboard');
+        return view('admin.dashboard', compact('totalUsers'));
     }
-
 }

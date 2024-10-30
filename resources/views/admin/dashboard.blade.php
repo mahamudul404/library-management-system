@@ -38,8 +38,13 @@
                     <h2 class="text-2xl font-bold"></h2> Example Laravel variable
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
+                    {{-- show total users in the auth table role user is count and show the total users --}}
                     <p class="text-gray-500">Total Members</p>
-                    <h2 class="text-2xl font-bold"></h2> {{-- Using $totalUsers as provided in the original code --}}
+                    <h2 class="text-2xl font-bold"> {{ $totalUsers }}</h2>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow">
+                    <p class="text-gray-500">Total Transactions</p>
+                    <h2 class="text-2xl font-bold"> Example Laravel variable</h2>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     <p class="text-gray-500">Borrowed Books</p>
