@@ -24,4 +24,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/admin/books', [AdminController::class, 'books'])->name('admin.books');
     Route::get('admin/books/{id}', [AdminController::class, 'deleteBook'])->name('books.destroy');
+//    show create books page
+    Route::get('books/add', [AdminController::class, 'createBook'])->name('books.add');
+
+    // store books
+    Route::post('books/store', [AdminController::class, 'storeBook'])->name('books.store');
 });

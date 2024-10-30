@@ -42,8 +42,23 @@ class AdminController extends Controller
         return view('admin.books', compact('books'));
     }
 
+    public function createBook()
+    {
+        return view('admin.Add');
+    }
 
-
+    public function storeBook(Request $request)
+    {
+        $book = new Book();
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->year = $request->year;
+        $book->cover_image = $request->cover_image;
+        $book->isbn = $request->isbn;
+        $book->available = $request->available;
+        $book->save();
+        return redirect()->back();
+    }
 
 
 

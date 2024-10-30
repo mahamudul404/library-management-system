@@ -45,10 +45,11 @@
 
         <main class="flex-1 p-8">
             <div class="flex justify-between items-center ml-8 mt-4">
-              <h1 class="text-3xl font-bold mb-6">Books</h1>
-            {{-- add new books a link add  --}}
-            <a href="" class="px-2 py-1 bg-blue-500 text-white rounded-md">Add New
-                Book</a>
+                <h1 class="text-3xl font-bold mb-6">Books</h1>
+                {{-- add new books a link add  --}}
+                <a href="  {{ route('books.add') }} " class="px-2 py-1 bg-blue-500 text-white rounded-md">Add
+                    New
+                    Book</a>
             </div>
             <div class="mt-8 bg-white p-6 rounded-lg shadow">
                 <h2 class="text-xl font-bold mb-4">Books</h2>
