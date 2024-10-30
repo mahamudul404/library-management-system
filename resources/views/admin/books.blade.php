@@ -76,7 +76,7 @@
                                 <td class="py-2 px-4 border-b">{{ $book->isbn ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $book->available ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">
-                                    <a href="" class="px-2 py-1 bg-blue-500 text-white rounded-md">Edit</a>
+                                    <a href=" {{  route('books.edit', $book->id)}} " class="px-2 py-1 bg-blue-500 text-white rounded-md">Edit</a>
                                     <a href="{{ route('books.destroy', $book->id) }}"
                                         class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</a>
                                 </td>

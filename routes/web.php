@@ -29,4 +29,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     // store books
     Route::post('books/store', [AdminController::class, 'storeBook'])->name('books.store');
+    // edit books
+    Route::get('books/edit/{id}', [AdminController::class, 'editBook'])->name('books.edit');
 });

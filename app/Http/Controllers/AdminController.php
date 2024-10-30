@@ -54,8 +54,8 @@ class AdminController extends Controller
             'author' => 'required',
             'isbn' => 'required',
             'year' => 'required|integer',
-            'isbn' => 'required',
             'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'availabe' => 'required',
 
         ]);
 
@@ -64,6 +64,7 @@ class AdminController extends Controller
         $book->author = $request->author;
         $book->isbn = $request->isbn;
         $book->year = $request->year;
+        $book->available = $request->available;
 
         // store image
         if ($request->hasFile('cover_image')) {
@@ -77,6 +78,12 @@ class AdminController extends Controller
 
         $book->save();
         return redirect()->route('admin.books');
+    }
+
+    public function editBook($id)
+    {
+        $book = Book::findOrFail($id);
+        return view('admin.edit', compact('book'));
     }
 
 
