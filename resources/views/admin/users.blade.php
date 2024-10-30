@@ -52,6 +52,8 @@
                             <th class="py-2 px-4 border-b">Name</th>
                             <th class="py-2 px-4 border-b">Email</th>
                             <th class="py-2 px-4 border-b">Role</th>
+                            {{-- delete user --}}
+                            <th class="py-2 px-4 border-b">Action</th>
                         </tr>
                     </thead>
                     <tbody class="text-left">
@@ -60,6 +62,15 @@
                                 <td class="py-2 px-4 border-b">{{ $user->name ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $user->email ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $user->role ?? 'N/A' }}</td>
+                                {{-- how to delete user account --}}
+                                <td class="py-2 px-4 border-b">
+                                    <form action="{{ route('delete', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="px-2 py-1 bg-red-500 text-white rounded-md">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
