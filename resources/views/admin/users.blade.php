@@ -47,16 +47,16 @@
             <div class="mt-8 bg-white p-6 rounded-lg shadow">
                 <h2 class="text-xl font-bold mb-4">Members</h2>
                 <table class="w-full">
-                    <thead>
-                        <tr>
+                    <thead class="text-left">
+                        <tr class="text-left">
                             <th class="py-2 px-4 border-b">Name</th>
                             <th class="py-2 px-4 border-b">Email</th>
                             <th class="py-2 px-4 border-b">Role</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach ($users ?? [] as $user)
-                            <tr>
+                    <tbody class="text-left">
+                        @foreach ($users as $user)
+                            <tr class="text-left">
                                 <td class="py-2 px-4 border-b">{{ $user->name ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $user->email ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $user->role ?? 'N/A' }}</td>
