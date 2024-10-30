@@ -23,6 +23,5 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::delete('admin/dashboard/users/{id}', [AdminController::class, 'deleteUser'])->name('user.delete');
 
     Route::get('/admin/books', [AdminController::class, 'books'])->name('admin.books');
+    Route::get('admin/books/{id}', [AdminController::class, 'deleteBook'])->name('books.destroy');
 });
-
-

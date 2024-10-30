@@ -41,4 +41,16 @@ class AdminController extends Controller
         $books = Book::all();
         return view('admin.books', compact('books'));
     }
+
+
+
+
+
+
+    public function deleteBook($id)
+    {
+        $book = Book::findOrFail($id);
+        $book->delete();
+        return redirect()->back();
+    }
 }
