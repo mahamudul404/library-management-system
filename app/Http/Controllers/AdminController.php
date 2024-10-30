@@ -35,4 +35,10 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->back();
     }
+
+    public function books()
+    {
+        $books = Book::all();
+        return view('admin.books', compact('books'));
+    }
 }
