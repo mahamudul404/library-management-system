@@ -20,7 +20,8 @@
                     <li class="mb-2"><a href="{{ route('admin.dashboard') }}"
                             class="hover:bg-gray-700 p-2 rounded">Dashboard</a></li>
                     <li class="mb-2"><a href="#" class="hover:bg-gray-700 p-2 rounded">Books</a></li>
-                    <li class="mb-2"><a href="#" class="hover:bg-gray-700 p-2 rounded">Members</a></li>
+                    <li class="mb-2"><a href=" {{ route('admin.users') }} "
+                            class="hover:bg-gray-700 p-2 rounded">Members</a></li>
                 </ul>
             </div>
 
@@ -89,6 +90,8 @@
                 </table>
             </div>
         </main>
+
+
     </div>
 
 </body>
