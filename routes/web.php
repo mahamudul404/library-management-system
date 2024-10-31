@@ -24,11 +24,14 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
     Route::get('/admin/books', [AdminController::class, 'books'])->name('admin.books');
     Route::get('admin/books/{id}', [AdminController::class, 'deleteBook'])->name('books.destroy');
-//    show create books page
+    //    show create books page
     Route::get('books/add', [AdminController::class, 'createBook'])->name('books.add');
 
     // store books
     Route::post('books/store', [AdminController::class, 'storeBook'])->name('books.store');
     // edit books
     Route::get('books/edit/{id}', [AdminController::class, 'editBook'])->name('books.edit');
+
+    // update books
+    Route::post('books/update/{id}', [AdminController::class, 'updateBook'])->name('admin.books.update');
 });

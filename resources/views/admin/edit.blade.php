@@ -46,7 +46,7 @@
         <main class="flex-1 p-8 bg-white rounded-lg shadow-md mt-4 mr-4 ml-4 mb-4" id="edit-book-page">
             <!-- Add your content here -->
             <h1 class="text-2xl font-bold mb-4">Edit Book</h1>
-            <form action="" method="POST">
+            <form action=" {{ route('admin.books.update', $book->id) }} " method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
