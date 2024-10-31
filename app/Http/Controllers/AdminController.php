@@ -71,7 +71,6 @@ class AdminController extends Controller
         if ($request->hasFile('cover_image')) {
             $image = $request->file('cover_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/' . $filename);
             $image->move(public_path('images'), $filename);
             $book->cover_image = $filename;
         }
@@ -112,7 +111,6 @@ class AdminController extends Controller
             }
             $image = $request->file('cover_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('images/' . $filename);
             $image->move(public_path('images'), $filename);
             $book->cover_image = $filename;
         }
@@ -129,7 +127,12 @@ class AdminController extends Controller
 
     public function deleteBook($id)
     {
+        // delete image in public folder
         $book = Book::findOrFail($id);
+        if ($book->cover_image && file_exists(public_path('images/' . $book->cover_image))) {
+            unlink(public_path('images/' . $book->cover_image));
+        }
+
         $book->delete();
         return redirect()->back();
     }

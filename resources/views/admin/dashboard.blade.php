@@ -57,7 +57,7 @@
                     <h2 class="text-2xl font-bold"> {{ $totalUsers }}</h2>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
-                    <p class="text-gray-500">Total Transactions</p>
+                    <p class="text-gray-500">Total borowred Books</p>
                     <h2 class="text-2xl font-bold"> Example Laravel variable</h2>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
