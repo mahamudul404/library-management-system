@@ -40,18 +40,23 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach ($books as $book)
-                <div class="bg-gray-800 p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                <div
+                    class="bg-gray-800 p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
                     <h2 class="text-xl font-semibold mb-2 text-white">{{ $book->title }}</h2>
                     <p class="text-sm text-gray-400 mb-4">by {{ $book->author }}</p>
 
                     {{-- Show book cover image --}}
-                    <img src="{{ asset('images/' . $book->cover_image) }}" alt="{{ $book->title }}" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <img src="{{ asset('images/' . $book->cover_image) }}" alt="{{ $book->title }}"
+                        class="rounded-lg mb-4 w-full h-48 object-cover">
+
+                    <a href=" {{ route('books.show', $book->id) }} " class="text-lg font-semibold text-indigo-400 hover:underline mb-2">Read More</a>
+
 
                     {{-- Borrow button --}}
                     <form action="" method="POST" class="text-center">
                         @csrf
                         <button type="submit"
-                            class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200 ease-in-out">
+                            class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200 ease-in-out mt-4">
                             Borrow
                         </button>
                     </form>

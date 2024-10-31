@@ -13,4 +13,10 @@ class BorrowedBooksController extends Controller
 
         return view('books.index', compact('books'));
     }
+
+    public function show($id)
+    {
+        $book = Book::findOrFail($id);
+        return view('books.show', compact('book'));
+    }
 }

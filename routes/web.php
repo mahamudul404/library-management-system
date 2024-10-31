@@ -34,3 +34,5 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     // update books
     Route::put('books/update/{id}', [AdminController::class, 'updateBook'])->name('admin.books.update');
 });
+
+Route::get('books/{id}', [BorrowedBooksController::class, 'show'])->name('books.show');
