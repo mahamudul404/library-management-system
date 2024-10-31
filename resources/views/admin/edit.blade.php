@@ -46,7 +46,7 @@
         <main class="flex-1 p-8 bg-white rounded-lg shadow-md mt-4 mr-4 ml-4 mb-4" id="edit-book-page">
             <!-- Add your content here -->
             <h1 class="text-2xl font-bold mb-4">Edit Book</h1>
-            <form action=" {{ route('admin.books.update', $book->id) }} " method="POST">
+            <form action=" {{ route('admin.books.update', $book->id) }} " method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
@@ -81,7 +81,7 @@
                     <label for="image" class="block text-gray-700 font-bold mb-2">Image:</label>
                     <img src="{{ asset('images/' . $book->cover_image) }}" alt="{{ $book->title }}"
                         class="w-20 h-20 object-cover" style="width: 100px">
-                    <input type="file" id="image" name="image" class="mt-2">
+                    <input type="file" id="cover_image" name="cover_image" class="mt-2">
                 </div>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     Update Book

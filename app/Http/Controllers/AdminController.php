@@ -55,7 +55,7 @@ class AdminController extends Controller
             'isbn' => 'required',
             'year' => 'required|integer',
             'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'availabe' => 'required',
+            'available' => 'required',
 
         ]);
 
@@ -104,14 +104,21 @@ class AdminController extends Controller
         $book->year = $request->year;
         $book->available = $request->available;
 
-        // store image
+        // update new image and then delete old image in public folder
         if ($request->hasFile('cover_image')) {
+            if ($book->cover_image && file_exists(public_path('images/' . $book->cover_image))) {
+                unlink(public_path('images/' . $book->cover_image));
+            }
             $image = $request->file('cover_image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
             $image->move(public_path('images'), $filename);
             $book->cover_image = $filename;
         }
+
+
+
+
 
         $book->save();
         return redirect()->route('admin.books');
