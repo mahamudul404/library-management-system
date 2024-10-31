@@ -68,25 +68,24 @@
 
             {{-- Recent Transactions Table --}}
             <div class="mt-8 bg-white p-6 rounded-lg shadow">
-                <h2 class="text-xl font-bold mb-4">Recent Transactions</h2>
+                <h2 class="text-xl font-bold mb-4"> Borowed Books </h2>
                 <table class="w-full">
                     <thead>
                         <tr>
                             <th class="py-2 px-4 border-b">Book Title</th>
                             <th class="py-2 px-4 border-b">Member Name</th>
                             <th class="py-2 px-4 border-b">Borrowed Date</th>
-                            <th class="py-2 px-4 border-b">Due Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($recentTransactions ?? [] as $transaction)
+                        {{-- @foreach ($recentTransactions ?? [] as $transaction)
                             <tr>
                                 <td class="py-2 px-4 border-b">{{ $transaction->book->title ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $transaction->member->name ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $transaction->borrowed_date ?? 'N/A' }}</td>
                                 <td class="py-2 px-4 border-b">{{ $transaction->due_date ?? 'N/A' }}</td>
                             </tr>
-                        @endforeach
+                        @endforeach --}}
                     </tbody>
                 </table>
             </div>
