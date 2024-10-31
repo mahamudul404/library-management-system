@@ -86,6 +86,37 @@ class AdminController extends Controller
         return view('admin.edit', compact('book'));
     }
 
+    public function updateBook(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'isbn' => 'required',
+            'year' => 'required|integer',
+            'cover_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'available' => 'required',
+        ]);
+
+        $book = Book::findOrFail($id);
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->isbn = $request->isbn;
+        $book->year = $request->year;
+        $book->available = $request->available;
+
+        // store image
+        if ($request->hasFile('cover_image')) {
+            $image = $request->file('cover_image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/' . $filename);
+            $image->move(public_path('images'), $filename);
+            $book->cover_image = $filename;
+        }
+
+        $book->save();
+        return redirect()->route('admin.books');
+    }
+
 
 
     public function deleteBook($id)

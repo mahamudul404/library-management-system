@@ -33,5 +33,5 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('books/edit/{id}', [AdminController::class, 'editBook'])->name('books.edit');
 
     // update books
-    Route::post('books/update/{id}', [AdminController::class, 'updateBook'])->name('admin.books.update');
+    Route::put('books/update/{id}', [AdminController::class, 'updateBook'])->name('admin.books.update');
 });
