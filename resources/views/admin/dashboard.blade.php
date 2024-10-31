@@ -23,6 +23,9 @@
                             class="hover:bg-gray-700 p-2 rounded">Books</a></li>
                     <li class="mb-2"><a href=" {{ route('admin.users') }} "
                             class="hover:bg-gray-700 p-2 rounded">Members</a></li>
+                    {{-- go users view page --}}
+                    <li class="mb-2"><a href=" {{ route('home') }} " class="hover:bg-gray-700 p-2 rounded">Users view
+                            page</a></li>
                 </ul>
             </div>
 
