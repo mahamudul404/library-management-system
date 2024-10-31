@@ -19,7 +19,8 @@
                 <ul>
                     <li class="mb-2"><a href="{{ route('admin.dashboard') }}"
                             class="hover:bg-gray-700 p-2 rounded">Dashboard</a></li>
-                    <li class="mb-2"><a href="{{ route('admin.books') }}" class="hover:bg-gray-700 p-2 rounded">Books</a></li>
+                    <li class="mb-2"><a href="{{ route('admin.books') }}"
+                            class="hover:bg-gray-700 p-2 rounded">Books</a></li>
                     <li class="mb-2"><a href=" {{ route('admin.users') }} "
                             class="hover:bg-gray-700 p-2 rounded">Members</a></li>
                 </ul>
@@ -48,7 +49,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div class="bg-white p-6 rounded-lg shadow">
                     <p class="text-gray-500">Total Books</p>
-                    <h2 class="text-2xl font-bold"></h2> Example Laravel variable
+                    <h2 class="text-2xl font-bold"> {{ $totalbooks }} </h2>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow">
                     {{-- Show total users in the auth table role user is count and show the total users --}}
