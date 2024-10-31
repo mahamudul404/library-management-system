@@ -45,7 +45,7 @@
                     <p class="text-sm text-gray-400 mb-4">by {{ $book->author }}</p>
 
                     {{-- Show book cover image --}}
-                    <img src="{{ asset('storage/' . $book->cover_image) }}" alt="{{ $book->title }}" class="rounded-lg mb-4 w-full h-48 object-cover">
+                    <img src="{{ asset('images/' . $book->cover_image) }}" alt="{{ $book->title }}" class="rounded-lg mb-4 w-full h-48 object-cover">
 
                     {{-- Borrow button --}}
                     <form action="" method="POST" class="text-center">
