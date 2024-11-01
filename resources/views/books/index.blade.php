@@ -20,7 +20,7 @@
             <div class="space-x-4">
                 <a href="/" class="text-gray-300 hover:text-indigo-400">Home</a>
                 @auth
-                    <a href="/borrowed-books" class="text-gray-300 hover:text-indigo-400">Borrowed Books</a>
+                    <a href=" {{ route('borrowed.books') }} " class="text-gray-300 hover:text-indigo-400">Borrowed Books</a>
                     {{-- Logout Form --}}
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                         @csrf

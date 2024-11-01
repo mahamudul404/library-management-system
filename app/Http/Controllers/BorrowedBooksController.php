@@ -34,4 +34,10 @@ class BorrowedBooksController extends Controller
         $borrowing->save();
         return redirect()->route('books.show', $book->id);
     }
+
+    public function borrowedBooks()
+    {
+        $borrowings = Borrowing::where('user_id', Auth::user()->id)->get();
+        return view('books.borrowed', compact('borrowings'));
+    }
 }
