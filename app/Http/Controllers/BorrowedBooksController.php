@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Borrowing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BorrowedBooksController extends Controller
 {
@@ -31,5 +33,12 @@ class BorrowedBooksController extends Controller
         }else{
             return redirect()->back()->with('error', 'Book is not available.');
         }
+
+        Borrowing::created([
+            'user_id' => Auth::user()->id,
+            'book_id' => $book->id,
+            'borrowed_at' => now(),
+            'return_at' => now()->addDays(7),
+        ]);
     }
 }

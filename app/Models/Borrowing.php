@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Borrowing extends Model
 {
 
+  protected $table = 'borrowings';
+  protected $fillable = ['user_id', 'book_id', 'borrowed_at', 'due_at', 'returned_at'];
 
 
 
