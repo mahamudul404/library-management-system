@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-Route::get('/', [BorrowedBooksController::class , 'index'])->name('home');
+Route::get('/', [BorrowedBooksController::class, 'index'])->name('home');
 
 Auth::routes();
 
@@ -38,4 +38,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 Route::get('books/{id}', [BorrowedBooksController::class, 'show'])->name('books.show');
 
 // borrow books
-Route::post('books/{id}/borrow', [BorrowedBooksController::class, 'borrow'])->name('books.borrow');
+
+
+Route::post('/borrow/{bookId}', [BorrowedBooksController::class, 'borrowBook'])->name('borrow.book');

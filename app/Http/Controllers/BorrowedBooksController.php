@@ -22,23 +22,16 @@ class BorrowedBooksController extends Controller
         return view('books.show', compact('book'));
     }
 
-    public function borrow($id)
+    public function borrowBook($id)
     {
         $book = Book::findOrFail($id);
-       
-        if($book->available){
-            $book->available = false;
-            $book->save();
-            return redirect()->back()->with('success', 'Book borrowed successfully.');
-        }else{
-            return redirect()->back()->with('error', 'Book is not available.');
-        }
-
-        Borrowing::created([
-            'user_id' => Auth::user()->id,
-            'book_id' => $book->id,
-            'borrowed_at' => now(),
-            'return_at' => now()->addDays(7),
-        ]);
+        $user = Auth::user();
+        $borrowing = new Borrowing();
+        $borrowing->user_id = $user->id;
+        $borrowing->book_id = $book->id;
+        $borrowing->borrowed_at = now();
+        $borrowing->due_at = now()->addDays(7);
+        $borrowing->save();
+        return redirect()->route('books.show', $book->id);
     }
 }
