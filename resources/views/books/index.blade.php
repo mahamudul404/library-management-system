@@ -53,7 +53,7 @@
 
 
                     {{-- Borrow button --}}
-                    <form action="" method="POST" class="text-center">
+                    <form action=" {{ route('books.borrow', $book->id) }} " method="POST" class="text-center">
                         @csrf
                         <button type="submit"
                             class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200 ease-in-out mt-4">

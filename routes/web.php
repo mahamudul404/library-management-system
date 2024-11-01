@@ -36,3 +36,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 });
 
 Route::get('books/{id}', [BorrowedBooksController::class, 'show'])->name('books.show');
+
+// borrow books
+Route::post('books/{id}/borrow', [BorrowedBooksController::class, 'borrow'])->name('books.borrow');

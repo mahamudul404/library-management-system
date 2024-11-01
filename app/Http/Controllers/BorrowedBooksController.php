@@ -19,4 +19,17 @@ class BorrowedBooksController extends Controller
         $book = Book::findOrFail($id);
         return view('books.show', compact('book'));
     }
+
+    public function borrow($id)
+    {
+        $book = Book::findOrFail($id);
+       
+        if($book->available){
+            $book->available = false;
+            $book->save();
+            return redirect()->back()->with('success', 'Book borrowed successfully.');
+        }else{
+            return redirect()->back()->with('error', 'Book is not available.');
+        }
+    }
 }
