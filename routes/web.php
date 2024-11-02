@@ -43,3 +43,5 @@ Route::get('books/{id}', [BorrowedBooksController::class, 'show'])->name('books.
 Route::post('/borrow/{bookId}', [BorrowedBooksController::class, 'borrowBook'])->name('borrow.book')->middleware('auth');
 
 Route::get('/borrowed/books', [BorrowedBooksController::class, 'borrowedBooks'])->name('borrowed.books')->middleware('auth');
+
+Route::post('/return-book/{id}', [BorrowedBooksController::class, 'returnBook'])->name('returnBook');

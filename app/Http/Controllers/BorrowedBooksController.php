@@ -40,4 +40,6 @@ class BorrowedBooksController extends Controller
         $borrowings = Borrowing::where('user_id', Auth::user()->id)->get();
         return view('books.borrowed', compact('borrowings'));
     }
+
+    
 }

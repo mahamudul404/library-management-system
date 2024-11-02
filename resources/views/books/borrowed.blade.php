@@ -41,7 +41,7 @@
                         class="text-lg font-semibold text-indigo-400 hover:underline mb-2">Read More</a>
 
 
-                    <form action="   " method="POST" class="text-center">
+                    <form action=" {{ route('returnBook', $book->id) }} " method="POST" class="text-center">
                         @csrf
                         <button type="submit"
                             class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200 ease-in-out mt-4">
