@@ -81,14 +81,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($recentTransactions ?? [] as $transaction)
-                            <tr>
-                                <td class="py-2 px-4 border-b">{{ $transaction->book->title ?? 'N/A' }}</td>
-                                <td class="py-2 px-4 border-b">{{ $transaction->member->name ?? 'N/A' }}</td>
-                                <td class="py-2 px-4 border-b">{{ $transaction->borrowed_date ?? 'N/A' }}</td>
-                                <td class="py-2 px-4 border-b">{{ $transaction->due_date ?? 'N/A' }}</td>
+                       {{-- show borrowed books and user name --}}
+
+
+                        @foreach ($borrowingBooks as $borrowing)
+                            <tr class="hover:bg-gray-100 text-center">
+                                <td class="py-2 px-4 border-b">{{ $borrowing->book->title }}</td>
+                                <td class="py-2 px-4 border-b">{{ $borrowing->user->name }}</td>
+                                <td class="py-2 px-4 border-b">{{ $borrowing->created_at->format('M d, Y') }}</td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
+
                     </tbody>
                 </table>
             </div>
