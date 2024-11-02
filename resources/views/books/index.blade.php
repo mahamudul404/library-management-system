@@ -28,6 +28,17 @@
 
             {{-- Navbar Links --}}
             <div class="space-x-4">
+
+                {{-- show go admin panel button if user is admin --}}
+
+                @auth
+                    @if (Auth::user()->role == 'admin')
+                        <a href=" {{ route('admin.dashboard') }} " class="text-gray-300 hover:text-indigo-400">Admin
+                            Panel</a>
+                    @endif
+                @endauth
+
+
                 <a href="/" class="text-gray-300 hover:text-indigo-400">Home</a>
                 @auth
                     <a href=" {{ route('borrowed.books') }} " class="text-gray-300 hover:text-indigo-400">Borrowed Books</a>
