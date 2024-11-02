@@ -13,6 +13,13 @@ class BorrowedBooksController extends Controller
     {
         $books = Book::all();
 
+        // search and filter
+        if (request('search')) {
+            $books = Book::where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('author', 'like', '%' . request('search') . '%')
+                ->get();
+        }
+
         return view('books.index', compact('books'));
     }
 
