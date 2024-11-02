@@ -16,12 +16,12 @@
             <a href="/" class="text-2xl font-bold text-indigo-500">Library Management</a>
             <div class="space-x-4">
                 <a href="/" class="text-gray-300 hover:text-indigo-400">Home</a>
-                
+
             </div>
         </div>
     </nav>
 
-  {{-- this section show user borrowed books and due date and user return option --}} 
+    {{-- this section show user borrowed books and due date and user return option --}}
 
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-extrabold mb-6 text-center text-gray-100">Borrowed Books</h1>
@@ -34,10 +34,11 @@
                     <p class="text-sm text-gray-400 mb-4">by {{ $book->author }}</p>
 
                     {{-- Show book cover image --}}
-                    <img src="{{ asset('imagee/' . $book->cover_image) }}" alt="{{ $book->title }}"
+                    <img src="{{ asset('images/' . $book->book->cover_image) }}" alt="{{ $book->title }}"
                         class="rounded-lg mb-4 w-full h-48 object-cover">
 
-                    <a href=" {{ route('books.show', $book->id) }} " class="text-lg font-semibold text-indigo-400 hover:underline mb-2">Read More</a>
+                    <a href=" {{ route('books.show', $book->id) }} "
+                        class="text-lg font-semibold text-indigo-400 hover:underline mb-2">Read More</a>
 
 
                     <form action="   " method="POST" class="text-center">
@@ -48,10 +49,10 @@
                         </button>
                     </form>
                 </div>
-            @endforeach 
-        </div>    
-    </div>    
-           
+            @endforeach
+        </div>
+    </div>
+
 
 </body>
 
