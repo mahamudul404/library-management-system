@@ -40,7 +40,9 @@ class AdminController extends Controller
 
     public function books()
     {
-        $books = Book::all();
+        // add pagination
+        $books = Book::paginate(4);
+
         return view('admin.books', compact('books'));
     }
 

@@ -84,6 +84,10 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{-- pagination --}}
+                <div class="mt-4">
+                    {{ $books->links() }}
+                </div>
             </div>
         </main>
 
