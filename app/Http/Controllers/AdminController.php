@@ -6,22 +6,20 @@ use App\Models\Book;
 use App\Models\User;
 use App\Models\Borrowing;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        // $totalBooks = Book::count();
-        // $borrowedBooks = Borrowing::whereNull('return_at')->count();
-        // $overdueBooks = Borrowing::where('due_at', '<', now())->whereNull('return_at')->count();
-
+       
         $totalUsers = User::where('role', 'user')->count();
         $totalbooks = Book::all()->count();
         $borrowedBooks = Borrowing::whereNull('return_at')->count();
 
-        // show borrowing books in the admin dashboard books title member name and borrowed date show
 
-        $borrowingBooks = Borrowing::with('book', 'user')->get();
+        $borrowingBooks = Borrowing::whereNull('return_at')->with('user')->with('book')->paginate(3);
+        
 
 
         return view('admin.dashboard', compact('totalUsers', 'totalbooks', 'borrowedBooks', 'borrowingBooks'));

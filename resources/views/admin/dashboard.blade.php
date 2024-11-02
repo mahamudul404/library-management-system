@@ -94,6 +94,8 @@
 
                     </tbody>
                 </table>
+                {{-- pagination --}}
+                {{-- {{ $borrowingBooks->links() }} --}}
             </div>
         </main>
 
