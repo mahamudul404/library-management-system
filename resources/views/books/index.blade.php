@@ -16,6 +16,16 @@
             {{-- Logo or Brand Name --}}
             <a href="/" class="text-2xl font-bold text-indigo-500">Library Management</a>
 
+            {{-- Search Form --}}
+            <form action="  " method="GET" class="flex items-center">
+                <input type="text" name="search" placeholder="Search by title or author"
+                    class="bg-gray-700 text-gray-200 rounded-lg px-4 py-2 mr-2">
+                <button type="submit"
+                    class="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200 ease-in-out">
+                    Search
+                </button>
+            </form>
+
             {{-- Navbar Links --}}
             <div class="space-x-4">
                 <a href="/" class="text-gray-300 hover:text-indigo-400">Home</a>
