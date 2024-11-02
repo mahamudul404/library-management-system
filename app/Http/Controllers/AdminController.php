@@ -19,7 +19,12 @@ class AdminController extends Controller
         $totalbooks = Book::all()->count();
         $borrowedBooks = Borrowing::whereNull('return_at')->count();
 
-        return view('admin.dashboard', compact('totalUsers', 'totalbooks', 'borrowedBooks'));
+        // show borrowing books in the admin dashboard books title member name and borrowed date show
+
+        $borrowingBooks = Borrowing::with('book', 'user')->get();
+
+
+        return view('admin.dashboard', compact('totalUsers', 'totalbooks', 'borrowedBooks', 'borrowingBooks'));
     }
 
     public function users()
