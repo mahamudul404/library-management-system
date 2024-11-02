@@ -41,5 +41,13 @@ class BorrowedBooksController extends Controller
         return view('books.borrowed', compact('borrowings'));
     }
 
-    
+    public function returnBook($id)
+    {
+        $borrowedBook = Borrowing::findOrFail($id);
+        $borrowedBook->is_returned = true;
+        $borrowedBook->return_at = now();
+        $borrowedBook->save();
+
+        return redirect()->back();
+    }
 }
